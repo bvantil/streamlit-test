@@ -21,16 +21,6 @@ st.markdown("""
         height: 1.5rem !important;
         width: 1.5rem !important;
     }
-    input[type="text"] {
-        background-color: #f0f0f0 !important;  /* Light grey background */
-        color: black !important;  /* Text color */
-    }
-    input[type="text"]:focus {
-        background-color: #ffffff !important;  /* White background when focused */
-    }
-    .st-bq {
-        font-size: 22px !important;  /* Larger font for text inputs */
-    }
     .st-de {
         background-color: #02006c !important;  /* Change slider handle to blue */
     }
@@ -45,7 +35,12 @@ def format_dollar_value(value):
     return f"${value:,}"
 
 # Title of the app
-st.title('Custom Contract Pricing Calculator')
+st.title('Contract Manager Pricing Estimator')
+
+# Blurb at the top of the page
+st.markdown("""
+Interested in Contract Manager for your organization? Just move the sliders below to best reflect the revenue and contract demands of your organization, and we'll give you some ballpark pricing. **NOTE:** All estimates are purely for informational purposes; actual customized pricing will likely vary once we understand the nuances of your specific situation.
+""")
 
 # User inputs using sliders
 annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=1000000000, step=10000000)
@@ -74,7 +69,7 @@ if st.button('Calculate Pricing'):
     pinnacle_fee = framework_fee * 1.4
 
     # Display the formatted results
-    st.markdown(f'Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for your company is:', unsafe_allow_html=True)
+    st.markdown(f'Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for your organization is:', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Foundation Tier annual pricing is: <span class="dollar">${foundation_fee:,.2f}</span></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Framework Tier annual pricing is: <span class="dollar">${framework_fee:,.2f}</span></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Pinnacle Tier annual pricing is: <span class="dollar">${pinnacle_fee:,.2f}</span></div>', unsafe_allow_html=True)
