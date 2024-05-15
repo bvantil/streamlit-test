@@ -4,11 +4,11 @@ import math
 # Title of the app
 st.title('Custom Contract Pricing Calculator')
 
-# User inputs
+# User inputs using sliders
 company_name = st.text_input('Enter your company name:')
-annual_revenue = st.number_input('Enter your annual revenue (USD):', min_value=0.0, format='%f')
-annual_contract_volume = st.number_input('Enter your annual contract volume:', min_value=0, format='%d')
-average_pages_per_contract = st.number_input('Enter average pages per contract:', min_value=0, format='%d')
+annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=10000000000, step=10000000, format='$%d')
+annual_contract_volume = st.slider('Select your annual number of contracts:', min_value=10, max_value=1000, step=10)
+average_pages_per_contract = st.slider('Select average pages per contract:', min_value=10, max_value=250, step=25)
 
 # Button to calculate pricing
 if st.button('Calculate Pricing'):
@@ -18,7 +18,7 @@ if st.button('Calculate Pricing'):
     
     # PLL Costs and Variable Costs
     pll_costs = base_fee * 0.20
-    variable_costs = base_fee * 0.39 * (annual_contract_volume * average_pages_per_contract * 0.0001)
+    variable_costs = base_fee * 0.39 * (annual_contract_volume * average_pages_per_contract * 0.001)
 
     # Foundation Fee calculation
     foundation_fee = base_fee + pll_costs + variable_costs
@@ -34,3 +34,4 @@ if st.button('Calculate Pricing'):
     st.write(f'Pinnacle Tier annual pricing is: ${pinnacle_fee:.2f}')
 
 # Run this with `streamlit run this_script.py`
+
