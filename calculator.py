@@ -83,16 +83,14 @@ if st.button('Calculate Pricing'):
     # Ask user if they'd like to receive the results via email
     st.write("Would you like to receive the results via email?")
     col1, col2 = st.columns(2)
-    with col1:
-        if st.button('Yes, please send them to me'):
-            with st.modal("Enter your email"):
-                email = st.text_input('Enter your email address:')
-                if st.button('Send Me My Pricing'):
-                    st.success('Thank you! The pricing details have been sent to your email.')
+    if col1.button('Yes, please send them to me'):
+        with st.expander("Enter your email"):
+            email = st.text_input('Enter your email address:')
+            if st.button('Send Me My Pricing'):
+                st.success('Thank you! The pricing details have been sent to your email.')
 
-    with col2:
-        if st.button('No, thank you'):
-            with st.modal("Thank you"):
-                st.write("Thank you for your interest! Don't hesitate to contact us with any further questions.")
+    if col2.button('No, thank you'):
+        with st.expander("Thank you"):
+            st.write("Thank you for your interest! Don't hesitate to contact us with any further questions.")
 
 # Run this with `streamlit run this_script.py`
