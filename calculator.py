@@ -18,7 +18,7 @@ if st.button('Calculate Pricing'):
     
     # PLL Costs and Variable Costs
     pll_costs = base_fee * 0.20
-    variable_costs = base_fee * 0.39 * (annual_contract_volume * average_pages_per_contract * 0.001)
+    variable_costs = base_fee * 0.39 * (annual_contract_volume * average_pages_per_contract * 0.0001)
 
     # Foundation Fee calculation
     foundation_fee = base_fee + pll_costs + variable_costs
