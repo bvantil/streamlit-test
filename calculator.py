@@ -48,7 +48,6 @@ def format_dollar_value(value):
 st.title('Custom Contract Pricing Calculator')
 
 # User inputs using sliders
-company_name = st.text_input('Enter your company name:')
 annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=1000000000, step=10000000)
 
 # Display formatted annual revenue
@@ -75,22 +74,9 @@ if st.button('Calculate Pricing'):
     pinnacle_fee = framework_fee * 1.4
 
     # Display the formatted results
-    st.markdown(f'Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for use in {company_name} is:', unsafe_allow_html=True)
+    st.markdown(f'Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for your company is:', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Foundation Tier annual pricing is: <span class="dollar">${foundation_fee:,.2f}</span></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Framework Tier annual pricing is: <span class="dollar">${framework_fee:,.2f}</span></div>', unsafe_allow_html=True)
     st.markdown(f'<div class="pricing-output">Pinnacle Tier annual pricing is: <span class="dollar">${pinnacle_fee:,.2f}</span></div>', unsafe_allow_html=True)
-
-    # Ask user if they'd like to receive the results via email
-    st.write("Would you like to receive the results via email?")
-    col1, col2 = st.columns(2)
-    if col1.button('Yes, please send them to me'):
-        with st.expander("Enter your email"):
-            email = st.text_input('Enter your email address:')
-            if st.button('Send Me My Pricing'):
-                st.success('Thank you! The pricing details have been sent to your email.')
-
-    if col2.button('No, thank you'):
-        with st.expander("Thank you"):
-            st.write("Thank you for your interest! Don't hesitate to contact us with any further questions.")
 
 # Run this with `streamlit run this_script.py`
