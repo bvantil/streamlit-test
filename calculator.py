@@ -11,25 +11,15 @@ st.markdown("""
     .css-1cpxqw2 {
         font-size: 20px;  /* Bigger text on slider labels */
     }
-    .st-bf {  /* This targets the slider handle */
-        background-color: #02006c !important;  /* Change to blue */
+    .stSlider .css-14f6t7n {
+        height: 1.5rem !important;  /* Increase size of slider track */
     }
-    .st-eq {  /* This targets the slider track */
-        background-color: #ccd6f6 !important;  /* Change to blue */
+    .stSlider .css-1cpxqw2 {
+        font-size: 22px !important;  /* Larger font for slider labels */
     }
-    .stSlider .css-14f6t7n {  /* This targets the overall slider component */
-        height: 36px;
-        padding: 10px 0;  /* Bigger sliders for easier interaction */
-    }
-    .stSlider .css-14f6t7n .css-1cpxqw2 {
-        font-size: 16px;  /* Bigger and more readable slider labels */
-    }
-    .pricing-output {
-        font-size: 24px;
-        font-weight: normal;
-    }
-    .pricing-output .dollar {
-        font-weight: bold;
+    .stSlider .st-ae .css-1xgk5py {  /* Increase size of slider handle */
+        height: 1.5rem !important;
+        width: 1.5rem !important;
     }
     input[type="text"] {
         background-color: #f0f0f0 !important;  /* Light grey background */
@@ -38,12 +28,14 @@ st.markdown("""
     input[type="text"]:focus {
         background-color: #ffffff !important;  /* White background when focused */
     }
-    .st-bz {
+    .st-bq {
         font-size: 22px !important;  /* Larger font for text inputs */
     }
-    .st-c3 {
-        height: 1.5rem !important;  /* Increase size of slider handle */
-        width: 1.5rem !important;   /* Increase size of slider handle */
+    .st-de {
+        background-color: #02006c !important;  /* Change slider handle to blue */
+    }
+    .st-dh {
+        background-color: #ccd6f6 !important;  /* Change slider track to blue */
     }
 </style>
 """, unsafe_allow_html=True)
