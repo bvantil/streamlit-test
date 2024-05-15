@@ -5,27 +5,31 @@ import math
 st.markdown("""
 <style>
     /* Base styles */
-    .reportview-container .markdown-text-container {
+    .css-1xi51a1 {
         font-size: 18px;
     }
-    .widget-label {
+    .css-1cpxqw2 {
         font-size: 20px;  /* Bigger text on slider labels */
     }
-    /* Bigger sliders */
-    .stSlider > div[role="slider"] {
+    .st-bf {  /* This targets the slider handle */
+        background-color: #02006c !important;
+    }
+    .st-eq {  /* This targets the slider track */
+        background-color: #ccd6f6 !important;
+    }
+    .stSlider .css-14f6t7n {  /* This targets the overall slider component */
         height: 36px;
+        padding: 10px 0;  /* Bigger sliders for easier interaction */
     }
-    /* Custom slider color */
-    .stSlider > div[role="slider"] .st-bb {
-        background-color: #02006c;
+    .stSlider .css-14f6t7n .css-1cpxqw2 {
+        font-size: 16px;  /* Bigger and more readable slider labels */
     }
-    /* Number input formatting */
-    .stNumberInput > input {
-        font-size: 16px;
-    }
-    /* Bigger and bold pricing output */
+    /* Bold only the dollar amounts in the output */
     .pricing-output {
         font-size: 24px;
+        font-weight: normal;
+    }
+    .pricing-output .dollar {
         font-weight: bold;
     }
 </style>
@@ -59,8 +63,8 @@ if st.button('Calculate Pricing'):
 
     # Display the formatted results
     st.markdown(f'Thank you for your interest in Contract Manager. Based on the inputs you\'ve provided, a ballpark estimate for use in {company_name} is:', unsafe_allow_html=True)
-    st.markdown(f'<div class="pricing-output">Foundation Tier annual pricing is: ${foundation_fee:,.2f}</div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="pricing-output">Framework Tier annual pricing is: ${framework_fee:,.2f}</div>', unsafe_allow_html=True)
-    st.markdown(f'<div class="pricing-output">Pinnacle Tier annual pricing is: ${pinnacle_fee:,.2f}</div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="pricing-output">Foundation Tier annual pricing is: <span class="dollar">${foundation_fee:,.2f}</span></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="pricing-output">Framework Tier annual pricing is: <span class="dollar">${framework_fee:,.2f}</span></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="pricing-output">Pinnacle Tier annual pricing is: <span class="dollar">${pinnacle_fee:,.2f}</span></div>', unsafe_allow_html=True)
 
 # Run this with `streamlit run this_script.py`
