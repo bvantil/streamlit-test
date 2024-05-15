@@ -49,7 +49,11 @@ st.title('Custom Contract Pricing Calculator')
 
 # User inputs using sliders
 company_name = st.text_input('Enter your company name:')
-annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=1000000000, step=10000000, format=format_dollar_value)
+annual_revenue = st.slider('Select your annual revenue (USD):', min_value=10000000, max_value=1000000000, step=10000000)
+
+# Display formatted annual revenue
+st.markdown(f"**Annual Revenue (USD):** {format_dollar_value(annual_revenue)}")
+
 annual_contract_volume = st.slider('Select your annual number of contracts:', min_value=10, max_value=500, step=20)
 average_pages_per_contract = st.slider('Select average pages per contract:', min_value=10, max_value=250, step=25)
 
